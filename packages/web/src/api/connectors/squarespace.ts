@@ -24,6 +24,7 @@
 
 import { toChicagoISO } from "../lib/time";
 import { htmlToText } from "../lib/html";
+import { cachedFetchText } from "../lib/safeFetch";
 
 export interface SquarespaceSource {
   /** Full URL of the events collection page, e.g. "https://example.org/events" */
@@ -123,21 +124,19 @@ function mapItem(item: SquarespaceItem, source: SquarespaceSource): any | null {
 }
 
 async function fetchPage(url: string): Promise<SquarespaceCollectionResponse> {
-  const res = await fetch(url, {
-    headers: {
-      "User-Agent": "CommunityCalendar/1.0 (+https://40thward.org)",
-      Accept: "application/json",
-    },
+  const res = await cachedFetchText(url, {
+    "User-Agent": "CommunityCalendar/1.0 (+https://40thward.org)",
+    Accept: "application/json",
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const ct = res.headers.get("content-type") ?? "";
+  const ct = res.contentType;
   if (!ct.includes("json")) {
     // Squarespace answers with the rendered HTML page when a format isn't
     // supported, so a non-JSON content type means this URL is not an events
     // collection (wrong path, or the page was deleted/renamed).
     throw new Error(`expected JSON, got "${ct}" — is ${url} an events collection?`);
   }
-  return (await res.json()) as SquarespaceCollectionResponse;
+  return JSON.parse(res.text) as SquarespaceCollectionResponse;
 }
 
 function withJsonFormat(url: string): string {
@@ -192,6 +191,8 @@ export async function fetchSquarespaceEvents(
     if (typeof oldestSoFar === "number" && oldestSoFar <= timeMin.getTime()) break;
 
     const nextUrl = pg.nextPageUrl.startsWith("http") ? pg.nextPageUrl : `${origin}${pg.nextPageUrl}`;
+    // The cursor comes from the remote site; never let it steer us to another host.
+    if (originOf(nextUrl) !== origin) break;
     page = await fetchPage(withJsonFormat(nextUrl));
     collect(page.past);
     collect(page.items);

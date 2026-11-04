@@ -7,6 +7,7 @@ import { auth, ADMIN_EMAIL_ALLOWLIST } from "./auth";
 import { requireAdminAuth } from "./middleware/auth";
 import { fetchSquarespaceEvents } from "./connectors/squarespace";
 import { fetchRssEvents } from "./connectors/rss";
+import { cachedFetchText, clearFeedCache } from "./lib/safeFetch";
 import { DEFAULT_TZ, toChicagoISO } from "./lib/time";
 import { dedupeEvents, type DedupeCluster } from "./lib/dedupe";
 import {
@@ -469,17 +470,27 @@ async function fetchICalEvents(
   // authoritative calendar goes first; supplemental scraped sources rank
   // behind all of them. See lib/dedupe.ts.
   const allEvents: any[] = [];
-  await Promise.all(icsFeeds.map(async ({ url, name, gcalId }, rank) => {
-    const res = await fetch(url, { headers: { "User-Agent": "CommunityCalendar/1.0 (+https://40thward.org)" } });
+  // Settled, not all-or-nothing: one dead or oversized feed is logged and
+  // skipped (as the other source types already are) instead of turning the
+  // whole calendar into a 500.
+  const icsResults = await Promise.allSettled(icsFeeds.map(async ({ url, name, gcalId }, rank) => {
+    const res = await cachedFetchText(url, { "User-Agent": "CommunityCalendar/1.0 (+https://40thward.org)" });
     if (!res.ok) throw new Error(`iCal fetch failed for ${name}: ${res.status}`);
-    const ics = await res.text();
     // gcalId is empty for non-Google feeds, which makes buildGCalLink()
     // return no link rather than a broken one.
-    for (const ev of parseICS(ics, name, gcalId, timeMin, timeMax)) {
-      ev._rank = rank;
-      allEvents.push(ev);
-    }
+    const found = parseICS(res.text, name, gcalId, timeMin, timeMax);
+    for (const ev of found) ev._rank = rank;
+    return found;
   }));
+  icsResults.forEach((r, i) => {
+    if (r.status === "fulfilled") allEvents.push(...r.value);
+    else console.error(`[ics] ${icsFeeds[i].name} failed, skipping:`, r.reason?.message ?? r.reason);
+  });
+  if (icsFeeds.length > 0 && icsResults.every(r => r.status === "rejected")) {
+    // Every primary calendar failed: say so rather than serving an empty page
+    // that looks like "no events".
+    throw new Error("Could not load any calendar feed");
+  }
 
   // Supplemental non-ICS sources. Deliberately settled, not awaited as a
   // group: a broken third-party site must never take down the ward calendar.
@@ -829,6 +840,7 @@ const app = new Hono()
 
       saveFeeds(next);
       runtimeFeeds = loadFeeds();
+      clearFeedCache();
       return c.json({
         ok: true,
         feeds: runtimeFeeds,
@@ -937,6 +949,9 @@ const app = new Hono()
       };
       if (wantReport) body.duplicateReport = clusters;
 
+      // Let browsers and any CDN reuse the answer briefly; the feeds
+      // themselves are cached server-side for five minutes anyway.
+      c.header("Cache-Control", "public, max-age=60");
       return c.json(body, 200);
     } catch (e: any) {
       console.error("/api/events error:", e);

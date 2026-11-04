@@ -32,6 +32,7 @@
 
 import { toChicagoISO } from "../lib/time";
 import { htmlToText } from "../lib/html";
+import { cachedFetchText } from "../lib/safeFetch";
 
 export interface RssSource {
   /** Full URL of the events RSS feed, e.g. "https://www.dankhaus.com/events/rss" */
@@ -199,16 +200,14 @@ export async function fetchRssEvents(
   timeMin: Date,
   timeMax: Date,
 ): Promise<any[]> {
-  const res = await fetch(source.url, {
-    headers: {
-      "User-Agent": "CommunityCalendar/1.0 (+https://40thward.org)",
-      Accept: "application/rss+xml, application/xml, text/xml",
-    },
+  const res = await cachedFetchText(source.url, {
+    "User-Agent": "CommunityCalendar/1.0 (+https://40thward.org)",
+    Accept: "application/rss+xml, application/xml, text/xml",
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-  const ct = res.headers.get("content-type") ?? "";
-  const xml = await res.text();
+  const ct = res.contentType;
+  const xml = res.text;
   if (!/xml/i.test(ct) && !/<rss[\s>]|<feed[\s>]/i.test(xml)) {
     // Wild Apricot answers with the rendered page for unsupported paths, so
     // non-XML here means this URL is not an RSS feed.
