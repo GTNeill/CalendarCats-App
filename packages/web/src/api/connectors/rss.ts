@@ -201,7 +201,7 @@ export async function fetchRssEvents(
   timeMax: Date,
 ): Promise<any[]> {
   const res = await cachedFetchText(source.url, {
-    "User-Agent": "CommunityCalendar/1.0 (+https://40thward.org)",
+    "User-Agent": "CalendarCats/1.0 (+https://40thward.org)",
     Accept: "application/rss+xml, application/xml, text/xml",
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);

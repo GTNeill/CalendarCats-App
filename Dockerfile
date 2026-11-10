@@ -1,4 +1,4 @@
-# CommunityCalendar - hardened production image (web-only, minimal CVE surface).
+# CalendarCats - hardened production image (web-only, minimal CVE surface).
 #
 # The build stage installs the full workspace to compile the client bundle; the runtime
 # stage installs ONLY packages/web production dependencies, so mobile (expo/react-native),

@@ -1,4 +1,4 @@
-# Community Calendar — Railway deployment.
+# CalendarCats — Railway deployment.
 #
 # Builds the hardened, web-only Dockerfile rather than nixpacks installing the whole
 # workspace. Runtime ships only packages/web production deps (no mobile/desktop/build

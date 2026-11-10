@@ -171,7 +171,7 @@ export default function Index() {
     return () => ro.disconnect();
   }, []);
 
-  // When embedded in an iframe (e.g. the WPCalendarCats WordPress plugin),
+  // When embedded in an iframe (e.g. the CalendarCats WordPress plugin),
   // report document height to the parent window so it can auto-resize the iframe.
   useEffect(() => {
     if (!isEmbed || typeof window === "undefined") return;

@@ -688,7 +688,7 @@ function SiteSettingsPanel({ theme }: { theme: ReturnType<typeof useTheme>["them
 }
 
 // ── Calendar Feed Sources panel ───────────────────────────────────────────────
-// Parity with the WordPress plugin's Settings -> Calendar Cats feeds box. The
+// Parity with the WordPress plugin's Settings -> CalendarCats feeds box. The
 // line format is identical on purpose, so a feed list can be pasted between
 // the plugin and the site without editing.
 interface FeedSettings {

@@ -18,7 +18,7 @@ import { FARMERS_MARKET_ICS, FARMERS_MARKET_FEED_NAME, FARMERS_MARKET_PAGE_URL }
 
 // ── Calendar sources ─────────────────────────────────────────────────────────
 // Which calendars are read is configured at runtime and editable from
-// /admincat, at parity with the WordPress plugin's Settings → Calendar Cats.
+// /admincat, at parity with the WordPress plugin's Settings → CalendarCats.
 // The seed values and the line format live in lib/feeds.ts.
 //
 // Two kinds of source:
@@ -474,7 +474,7 @@ async function fetchICalEvents(
   // skipped (as the other source types already are) instead of turning the
   // whole calendar into a 500.
   const icsResults = await Promise.allSettled(icsFeeds.map(async ({ url, name, gcalId }, rank) => {
-    const res = await cachedFetchText(url, { "User-Agent": "CommunityCalendar/1.0 (+https://40thward.org)" });
+    const res = await cachedFetchText(url, { "User-Agent": "CalendarCats/1.0 (+https://40thward.org)" });
     if (!res.ok) throw new Error(`iCal fetch failed for ${name}: ${res.status}`);
     // gcalId is empty for non-Google feeds, which makes buildGCalLink()
     // return no link rather than a broken one.

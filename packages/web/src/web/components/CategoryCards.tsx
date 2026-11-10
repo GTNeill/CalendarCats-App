@@ -616,7 +616,7 @@ function CategoryFilterBar({
 ───────────────────────────────────────────── */
 
 // Cards are sized for this many event rows; 5 or more events scroll.
-// Keep in sync with MAX_VISIBLE_ROWS in the WPCalendarCats plugin (assets/wpcc.js).
+// Keep in sync with MAX_VISIBLE_ROWS in the CalendarCats plugin (assets/wpcc.js).
 const MAX_VISIBLE = 4;
 
 /**

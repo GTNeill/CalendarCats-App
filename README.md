@@ -1,4 +1,4 @@
-# Community Calendar
+# CalendarCats
 
 Monorepo: Bun workspaces + Turborepo.
 

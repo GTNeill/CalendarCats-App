@@ -2,7 +2,7 @@
 //
 // Which calendars the site reads used to be hardcoded in api/index.ts, so
 // adding or swapping a source meant a code change and a deploy. The WordPress
-// plugin has always exposed these under Settings → Calendar Cats, and this
+// plugin has always exposed these under Settings → CalendarCats, and this
 // brings the site itself to parity.
 //
 // The line format is deliberately identical to the plugin's textarea
