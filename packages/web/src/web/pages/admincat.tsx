@@ -128,7 +128,7 @@ function KeywordEditor({
           background: `${theme.primary}22`,
           border: `1px solid ${theme.primary}66`,
           borderRadius: "12px",
-          fontSize: "11px",
+          fontSize: "12px",
           color: theme.textPrimary,
           fontFamily: "monospace",
         }}>
@@ -288,7 +288,7 @@ function IconField({
           style={{
             flex: 1,
             padding: "3px 4px",
-            fontSize: "9px",
+            fontSize: "12px",
             border: `1px solid ${theme.border}`,
             borderRadius: "4px",
             background: "transparent",
@@ -307,7 +307,7 @@ function IconField({
             title="Remove the image and go back to an emoji icon"
             style={{
               padding: "3px 5px",
-              fontSize: "9px",
+              fontSize: "12px",
               border: `1px solid ${theme.border}`,
               borderRadius: "4px",
               background: "transparent",
@@ -320,7 +320,7 @@ function IconField({
         )}
       </div>
 
-      {err && <span style={{ fontSize: "9px", color: "#e05555" }}>{err}</span>}
+      {err && <span style={{ fontSize: "12px", color: "#e05555" }}>{err}</span>}
     </div>
   );
 }
@@ -352,13 +352,13 @@ function CategoryRow({
     borderRadius: "4px",
     color: theme.textMuted,
     cursor: "pointer",
-    fontSize: "10px",
+    fontSize: "12px",
     lineHeight: 1,
   };
 
   const labelStyle: React.CSSProperties = {
     display: "block",
-    fontSize: "10px",
+    fontSize: "12px",
     color: theme.textMuted,
     marginBottom: "3px",
     textTransform: "uppercase",
@@ -405,7 +405,7 @@ function CategoryRow({
           style={{
             ...inputStyle,
             fontFamily: "monospace",
-            fontSize: "11px",
+            fontSize: "12px",
             opacity: isOther ? 0.5 : 1,
           }}
         />
@@ -641,43 +641,43 @@ function SiteSettingsPanel({ theme }: { theme: ReturnType<typeof useTheme>["them
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
         <div>
-          <label style={{ display: "block", fontSize: "11px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+          <label style={{ display: "block", fontSize: "12px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
             Page Header
           </label>
           {field("headerTitle")}
         </div>
         <div>
-          <label style={{ display: "block", fontSize: "11px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+          <label style={{ display: "block", fontSize: "12px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
             Subtitle
           </label>
           {field("headerSubtitle")}
         </div>
         <div style={{ gridColumn: "1 / -1" }}>
-          <label htmlFor="setting-footerText" style={{ display: "block", fontSize: "11px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+          <label htmlFor="setting-footerText" style={{ display: "block", fontSize: "12px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
             Footer Text <span style={{ opacity: 0.7 }}>(left side, leave blank to hide)</span>
           </label>
           {field("footerText")}
         </div>
         <div>
-          <label style={{ display: "block", fontSize: "11px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+          <label style={{ display: "block", fontSize: "12px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
             Footer Link Text
           </label>
           {field("footerLinkText")}
         </div>
         <div>
-          <label style={{ display: "block", fontSize: "11px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+          <label style={{ display: "block", fontSize: "12px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
             Footer Link URL <span style={{ opacity: 0.7 }}>(leave blank to hide the link)</span>
           </label>
           {field("footerLinkUrl")}
         </div>
         <div style={{ gridColumn: "1 / -1" }}>
-          <label htmlFor="setting-submitEventUrl" style={{ display: "block", fontSize: "11px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+          <label htmlFor="setting-submitEventUrl" style={{ display: "block", fontSize: "12px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
             Submit Your Event URL <span style={{ opacity: 0.7 }}>(leave blank to hide the button)</span>
           </label>
           {field("submitEventUrl")}
         </div>
         <div style={{ gridColumn: "1 / -1" }}>
-          <label htmlFor="setting-contactEmail" style={{ display: "block", fontSize: "11px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+          <label htmlFor="setting-contactEmail" style={{ display: "block", fontSize: "12px", color: theme.textMuted, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.04em" }}>
             Contact Email <span style={{ opacity: 0.7 }}>(shown in the About popup, leave blank to hide it)</span>
           </label>
           {field("contactEmail")}
@@ -789,11 +789,11 @@ function FeedSourcesPanel({ theme }: { theme: ReturnType<typeof useTheme>["theme
   }
 
   const labelStyle: React.CSSProperties = {
-    display: "block", fontSize: "11px", color: theme.textMuted, marginBottom: "4px",
+    display: "block", fontSize: "12px", color: theme.textMuted, marginBottom: "4px",
     textTransform: "uppercase", letterSpacing: "0.04em",
   };
   const hintStyle: React.CSSProperties = {
-    fontSize: "11px", color: theme.textMuted, opacity: 0.85, marginTop: "5px", lineHeight: 1.5,
+    fontSize: "12px", color: theme.textMuted, opacity: 0.85, marginTop: "5px", lineHeight: 1.5,
   };
 
   return (
@@ -902,7 +902,7 @@ function FeedSourcesPanel({ theme }: { theme: ReturnType<typeof useTheme>["theme
           <div style={{
             borderTop: `1px solid ${theme.border}`,
             paddingTop: "12px",
-            fontSize: "11px",
+            fontSize: "12px",
             color: theme.textMuted,
           }}>
             <div style={{ ...labelStyle, marginBottom: "6px" }}>
@@ -1134,7 +1134,7 @@ function AdminCatInner() {
           </h1>
           {dirty && (
             <span style={{
-              fontSize: "11px",
+              fontSize: "12px",
               color: theme.accent,
               background: `${theme.accent}18`,
               border: `1px solid ${theme.accent}44`,

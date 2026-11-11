@@ -132,7 +132,7 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
           <h3
             style={{
               fontFamily: theme.fontBody,
-              fontSize: "0.72rem",
+              fontSize: "0.75rem",
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.08em",
@@ -246,7 +246,7 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
           <h3
             style={{
               fontFamily: theme.fontBody,
-              fontSize: "0.72rem",
+              fontSize: "0.75rem",
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.08em",

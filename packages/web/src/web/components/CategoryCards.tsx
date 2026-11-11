@@ -153,7 +153,7 @@ function EventPopup({
       <div style={{ padding: "14px 16px 10px" }}>
         <div
           style={{
-            fontSize: "0.72rem",
+            fontSize: "0.75rem",
             fontWeight: 700,
             textTransform: "uppercase",
             letterSpacing: "0.08em",
@@ -199,7 +199,7 @@ function EventPopup({
                     borderRadius: 99,
                     background: `${categoryColor}22`,
                     color: readableOnTint(categoryColor, "22", theme.popupBg),
-                    fontSize: "0.72rem",
+                    fontSize: "0.75rem",
                     fontWeight: 700,
                   }}
                 >
@@ -426,7 +426,7 @@ function EventRow({ ev, categoryColor }: { ev: CalEvent; categoryColor: string }
             transition: "background 0.18s",
           }}
         >
-          <div style={{ fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700, color: readableOnTint(categoryColor, "14", theme.surface) }}>
+          <div style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700, color: readableOnTint(categoryColor, "14", theme.surface) }}>
             {fmtWeekday(ev.start)}
           </div>
           <div style={{ fontSize: "1.4rem", fontWeight: 800, lineHeight: 1.1, color: theme.textPrimary }}>
@@ -434,11 +434,11 @@ function EventRow({ ev, categoryColor }: { ev: CalEvent; categoryColor: string }
           </div>
           {/* opacity removed: it stacked on an already-tinted colour and pushed
               this 10px label under 3:1 (WCAG 1.4.3). */}
-          <div style={{ fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600, color: readableOnTint(categoryColor, "14", theme.surface) }}>
+          <div style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600, color: readableOnTint(categoryColor, "14", theme.surface) }}>
             {fmtMonthShort(ev.start)}
           </div>
           {multiDay && (
-            <div style={{ fontSize: "0.55rem", fontWeight: 700, color: readableOnTint(categoryColor, "14", theme.surface), marginTop: 2, whiteSpace: "nowrap" }}>
+            <div style={{ fontSize: "0.75rem", fontWeight: 700, color: readableOnTint(categoryColor, "14", theme.surface), marginTop: 2, whiteSpace: "nowrap" }}>
               → {lastDay.toLocaleString("en-US", { month: "short" })} {lastDay.getDate()}
             </div>
           )}
@@ -467,7 +467,7 @@ function EventRow({ ev, categoryColor }: { ev: CalEvent; categoryColor: string }
             {today && (
               <span
                 style={{
-                  fontSize: "0.6rem",
+                  fontSize: "0.75rem",
                   fontWeight: 800,
                   padding: "2px 7px",
                   borderRadius: 99,
@@ -494,7 +494,7 @@ function EventRow({ ev, categoryColor }: { ev: CalEvent; categoryColor: string }
             {dur && (
               <span
                 style={{
-                  fontSize: "0.7rem",
+                  fontSize: "0.75rem",
                   fontWeight: 700,
                   padding: "1px 7px",
                   borderRadius: 99,
@@ -576,7 +576,7 @@ function CategoryFilterBar({
         onClick={() => onChange(new Set())}
         style={{
           display: "flex", alignItems: "center", gap: 5,
-          padding: "4px 12px", borderRadius: 99, fontSize: "0.72rem", fontWeight: 700,
+          padding: "4px 12px", borderRadius: 99, fontSize: "0.75rem", fontWeight: 700,
           cursor: "pointer",
           border: `1.5px solid ${allSelected ? theme.primary : theme.border}`,
           background: allSelected ? `${theme.primary}22` : "transparent",
@@ -594,7 +594,7 @@ function CategoryFilterBar({
             onClick={() => toggle(key)}
             style={{
               display: "flex", alignItems: "center", gap: 5,
-              padding: "4px 11px", borderRadius: 99, fontSize: "0.72rem", fontWeight: 700,
+              padding: "4px 11px", borderRadius: 99, fontSize: "0.75rem", fontWeight: 700,
               cursor: "pointer",
               border: `1.5px solid ${active ? color : theme.border}`,
               background: active ? `${color}22` : "transparent",
@@ -784,7 +784,7 @@ export default function CategoryCards({ grouped, selectedCats, onChangeSelectedC
                   display: "flex", alignItems: "center", gap: 12, marginBottom: 14,
                 }}>
                   <div style={{
-                    fontSize: "0.65rem", fontWeight: 800, textTransform: "uppercase",
+                    fontSize: "0.75rem", fontWeight: 800, textTransform: "uppercase",
                     letterSpacing: "0.14em", color: theme.textMuted,
                     fontFamily: theme.fontBody,
                   }}>
@@ -866,7 +866,7 @@ export default function CategoryCards({ grouped, selectedCats, onChangeSelectedC
                       borderRadius: "50%",
                       background: meta.color,
                       color: onSolid(meta.color),
-                      fontSize: "0.7rem",
+                      fontSize: "0.75rem",
                       fontWeight: 800,
                       display: "flex",
                       alignItems: "center",
@@ -913,7 +913,7 @@ export default function CategoryCards({ grouped, selectedCats, onChangeSelectedC
                           <div style={{ flex: 1, height: 1, background: theme.border }} />
                           <span
                             style={{
-                              fontSize: "0.65rem",
+                              fontSize: "0.75rem",
                               fontWeight: 700,
                               textTransform: "uppercase",
                               letterSpacing: "0.1em",

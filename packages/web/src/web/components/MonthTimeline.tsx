@@ -27,14 +27,14 @@ function EventChip({ ev }: { ev: CalEvent }) {
       }}
     >
       <div
-        className="text-[10px] font-medium leading-tight truncate transition-colors"
+        className="text-[12px] font-medium leading-tight truncate transition-colors"
         style={{ color: "#F0F0F0" }}
         onMouseEnter={e => (e.currentTarget.style.color = "#C8A96E")}
         onMouseLeave={e => (e.currentTarget.style.color = "#F0F0F0")}
       >
         {ev.title}
       </div>
-      <div className="text-[9px] mt-0.5" style={{ color: "#5A5A5A" }}>
+      <div className="text-[12px] mt-0.5" style={{ color: "#5A5A5A" }}>
         {time}
       </div>
     </a>
@@ -105,7 +105,7 @@ export default function MonthTimeline({ events, start, end }: Props) {
                   }}
                 >
                   {showMonth && (
-                    <div className="text-[9px] uppercase tracking-widest mb-0.5" style={{ color: "#5A5A5A" }}>
+                    <div className="text-[12px] uppercase tracking-widest mb-0.5" style={{ color: "#5A5A5A" }}>
                       {monthShort}
                     </div>
                   )}
@@ -116,14 +116,14 @@ export default function MonthTimeline({ events, start, end }: Props) {
                     {dayNum}
                   </div>
                   <div
-                    className="text-[10px] uppercase tracking-wide mt-0.5"
+                    className="text-[12px] uppercase tracking-wide mt-0.5"
                     style={{ color: isToday ? "#C8A96E88" : "#5A5A5A" }}
                   >
                     {dayName}
                   </div>
                   {isToday && (
                     <div
-                      className="text-[8px] font-bold uppercase tracking-widest mt-1 px-1.5 py-0.5 rounded mx-auto inline-block"
+                      className="text-[12px] font-bold uppercase tracking-widest mt-1 px-1.5 py-0.5 rounded mx-auto inline-block"
                       style={{ background: "#C8A96E", color: "#0A0A0A" }}
                     >
                       Today
@@ -134,7 +134,7 @@ export default function MonthTimeline({ events, start, end }: Props) {
                 {/* Events */}
                 <div className="p-1.5" style={{ minHeight: 40 }}>
                   {dayEvents.length === 0 ? (
-                    <div className="text-center py-2" style={{ color: "#2a2a2a", fontSize: 10 }}>
+                    <div className="text-center py-2" style={{ color: "#2a2a2a", fontSize: 12 }}>
                       —
                     </div>
                   ) : (
@@ -157,7 +157,7 @@ export default function MonthTimeline({ events, start, end }: Props) {
         ).map(([key, { label, color, icon }]) => (
           <div key={key} className="flex items-center gap-1.5">
             <div className="w-2 h-2 rounded-sm flex-shrink-0" style={{ background: color }} />
-            <span className="text-[10px]" style={{ color: "#5A5A5A", display: "inline-flex", alignItems: "center", gap: 3 }}><CategoryIcon icon={icon} size={11} /> {label}</span>
+            <span className="text-[12px]" style={{ color: "#5A5A5A", display: "inline-flex", alignItems: "center", gap: 3 }}><CategoryIcon icon={icon} size={11} /> {label}</span>
           </div>
         ))}
       </div>

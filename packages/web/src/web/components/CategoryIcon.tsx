@@ -40,5 +40,5 @@ export default function CategoryIcon({
     );
   }
 
-  return <span style={{ fontSize: size * 0.9, lineHeight: 1 }}>{icon}</span>;
+  return <span style={{ fontSize: Math.max(12, Math.round(size * 0.9)), lineHeight: 1 }}>{icon}</span>;
 }

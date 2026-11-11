@@ -142,7 +142,7 @@ function EventPopup({
         </button>
       )}
       <div style={{ padding: "12px 14px 8px" }}>
-        <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: readableOn(cat, theme.popupBg), marginBottom: 3 }}>
+        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: readableOn(cat, theme.popupBg), marginBottom: 3 }}>
           <CategoryIcon icon={ev.categoryIcon} size={12} /> {ev.categoryLabel}
         </div>
         <div id={titleId} style={{ fontSize: "0.95rem", fontWeight: 700, lineHeight: 1.3, color: theme.textPrimary }}>
@@ -160,7 +160,7 @@ function EventPopup({
             <div style={{ fontSize: "0.76rem", color: theme.textMuted, marginTop: 1 }}>
               {timeStr}
               {dur && (
-                <span style={{ marginLeft: 7, padding: "1px 6px", borderRadius: 99, background: `${cat}22`, color: readableOnTint(cat, "22", theme.popupBg), fontSize: "0.68rem", fontWeight: 700 }}>
+                <span style={{ marginLeft: 7, padding: "1px 6px", borderRadius: 99, background: `${cat}22`, color: readableOnTint(cat, "22", theme.popupBg), fontSize: "0.75rem", fontWeight: 700 }}>
                   {dur}
                 </span>
               )}
@@ -326,13 +326,13 @@ function EventChip({ ev, date }: { ev: CalEvent; date?: Date }) {
       >
         {/* dot / diamond — flex-shrink so it stays tiny; a continuation chip
             gets a right-pointing arrow instead, to read as "still going". */}
-        <span style={{ fontSize: "0.55rem", color: readableOnTint(cat, "1a", theme.bg), fontWeight: 800, flexShrink: 0, marginTop: "0.2em" }}>
+        <span style={{ fontSize: "0.75rem", color: readableOnTint(cat, "1a", theme.bg), fontWeight: 800, flexShrink: 0, marginTop: "0.2em" }}>
           {isContinuation ? "▸" : ev.isAllDay ? "●" : "◆"}
         </span>
         {/* Title wraps freely; no truncation */}
         <span
           style={{
-            fontSize: "0.7rem",
+            fontSize: "0.75rem",
             fontWeight: 600,
             color: hovered ? readableOnTint(cat, "1a", theme.bg) : theme.textPrimary,
             transition: "color 0.15s",
@@ -342,11 +342,11 @@ function EventChip({ ev, date }: { ev: CalEvent; date?: Date }) {
           }}
         >
           {isContinuation ? (
-            <span style={{ color: readableOnTint(cat, "1a", theme.bg), marginRight: 4, fontSize: "0.65rem", fontWeight: 700, whiteSpace: "nowrap", fontStyle: "italic" }}>
+            <span style={{ color: readableOnTint(cat, "1a", theme.bg), marginRight: 4, fontSize: "0.75rem", fontWeight: 700, whiteSpace: "nowrap", fontStyle: "italic" }}>
               cont'd
             </span>
           ) : !ev.isAllDay && (
-            <span style={{ color: readableOnTint(cat, "1a", theme.bg), marginRight: 4, fontSize: "0.65rem", fontWeight: 700, whiteSpace: "nowrap" }}>
+            <span style={{ color: readableOnTint(cat, "1a", theme.bg), marginRight: 4, fontSize: "0.75rem", fontWeight: 700, whiteSpace: "nowrap" }}>
               {fmtTime(ev.start, false).replace(":00", "").toLowerCase()}
             </span>
           )}
@@ -460,7 +460,7 @@ function DayView({ events, start }: { events: CalEvent[]; start: Date }) {
             : "transparent",
         }}
       >
-        <div style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: theme.textPrimary, opacity: isToday ? 1 : 0.7 }}>
+        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: theme.textPrimary, opacity: isToday ? 1 : 0.7 }}>
           {DOW[start.getDay()]}
         </div>
         <div
@@ -524,7 +524,7 @@ function WeekView({ events, start }: { events: CalEvent[]; start: Date }) {
                   : "transparent",
               }}
             >
-              <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: isWeekend ? theme.textMuted : theme.textPrimary, opacity: isToday ? 1 : 0.7 }}>
+              <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: isWeekend ? theme.textMuted : theme.textPrimary, opacity: isToday ? 1 : 0.7 }}>
                 {DOW[i]}
               </div>
               <div
@@ -591,7 +591,7 @@ function MonthView({ events, start }: { events: CalEvent[]; start: Date }) {
             style={{
               padding: "8px 0",
               textAlign: "center",
-              fontSize: "0.65rem",
+              fontSize: "0.75rem",
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.08em",
@@ -698,7 +698,7 @@ function CategoryFilterBar({ events, selected, onChange, remember, onChangeRemem
           gap: 5,
           padding: "4px 12px",
           borderRadius: 99,
-          fontSize: "0.72rem",
+          fontSize: "0.75rem",
           fontWeight: 700,
           cursor: "pointer",
           border: `1.5px solid ${allSelected ? theme.accent : theme.border}`,
@@ -724,7 +724,7 @@ function CategoryFilterBar({ events, selected, onChange, remember, onChangeRemem
               gap: 5,
               padding: "4px 11px",
               borderRadius: 99,
-              fontSize: "0.72rem",
+              fontSize: "0.75rem",
               fontWeight: 700,
               cursor: "pointer",
               border: `1.5px solid ${active ? cat.color : theme.border}`,

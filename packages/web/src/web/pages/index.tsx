@@ -117,7 +117,7 @@ function ZoomSlider({
         title="Reset zoom to 100%"
         aria-label={`Reset zoom to 100 percent. Current zoom ${zoom} percent`}
         style={{
-          fontSize: "0.62rem",
+          fontSize: "0.75rem",
           fontWeight: 700,
           color: theme.textMuted,
           background: "transparent",

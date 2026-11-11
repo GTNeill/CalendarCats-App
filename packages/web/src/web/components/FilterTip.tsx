@@ -27,7 +27,7 @@ export default function FilterTip({
     >
       <div
         style={{
-          fontSize: "0.72rem",
+          fontSize: "0.75rem",
           color: theme.textMuted,
           lineHeight: 1.5,
         }}
@@ -44,7 +44,7 @@ export default function FilterTip({
           alignItems: "center",
           gap: 6,
           flexShrink: 0,
-          fontSize: "0.72rem",
+          fontSize: "0.75rem",
           fontWeight: 600,
           color: remember ? theme.primaryText : theme.textMuted,
           cursor: "pointer",

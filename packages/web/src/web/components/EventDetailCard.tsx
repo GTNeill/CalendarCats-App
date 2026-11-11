@@ -70,13 +70,13 @@ export default function EventDetailCard({ ev }: { ev: CalEvent }) {
             border: `1px solid ${categoryColor}44`,
           }}
         >
-          <div style={{ fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700, color: readableOnTint(categoryColor, "14", theme.popupBg) }}>
+          <div style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700, color: readableOnTint(categoryColor, "14", theme.popupBg) }}>
             {fmtWeekday(ev.start)}
           </div>
           <div style={{ fontSize: "1.4rem", fontWeight: 800, lineHeight: 1.1, color: theme.textPrimary }}>
             {fmtDayNum(ev.start)}
           </div>
-          <div style={{ fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600, color: readableOnTint(categoryColor, "14", theme.popupBg) }}>
+          <div style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600, color: readableOnTint(categoryColor, "14", theme.popupBg) }}>
             {fmtMonthShort(ev.start)}
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function EventDetailCard({ ev }: { ev: CalEvent }) {
         <div style={{ flex: 1, minWidth: 0 }}>
           <div
             style={{
-              fontSize: "0.72rem",
+              fontSize: "0.75rem",
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.08em",
@@ -136,7 +136,7 @@ export default function EventDetailCard({ ev }: { ev: CalEvent }) {
                     borderRadius: 99,
                     background: `${categoryColor}22`,
                     color: readableOnTint(categoryColor, "22", theme.popupBg),
-                    fontSize: "0.72rem",
+                    fontSize: "0.75rem",
                     fontWeight: 700,
                   }}
                 >
